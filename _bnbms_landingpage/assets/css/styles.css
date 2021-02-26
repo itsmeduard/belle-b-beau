@@ -1,0 +1,11 @@
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #B17D89 !important;
+  background-color: #FFFFFF !important;
+  -webkit-box-shadow: 0 0 4px #b17d89;
+  box-shadow: 0 0 4px #b17d89;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
