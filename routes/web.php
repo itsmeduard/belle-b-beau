@@ -1,7 +1,9 @@
 <?php
 use Illuminate\Support\Facades\{Auth,Route};
 
-Route::view('/', 'welcome');
+Route::any('/', function () {
+    return view('welcome');
+});
 
 Auth::routes(['verify' => true]);
 
@@ -11,6 +13,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('admin/dashboard/', App\Http\Controllers\Admin\AdminController::class, ['names' => 'dashboard']);
 
-Route::get ( '/redirect/{service}', [App\Http\Controllers\Auth\LoginController::class, 'redirect']);
-
-Route::get ( '/callback/{service}', [App\Http\Controllers\Auth\LoginController::class, 'callback']);
+Route::resource('appointment', App\Http\Controllers\AppointmentController::class, ['names' => 'appointment']);

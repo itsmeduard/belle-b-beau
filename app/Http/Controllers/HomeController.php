@@ -2,8 +2,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-use Session,Request;
+use App\Models\User,Session;
 
 class HomeController extends Controller
 {
@@ -13,7 +12,7 @@ class HomeController extends Controller
         $this->middleware(['auth','verified']);
     }
 
-    public function index(Request $request)
+    public function index()
     {
         $user = User::find( Auth::user()->id );
 
@@ -43,10 +42,14 @@ class HomeController extends Controller
 
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         Auth::logout();
         Session::flush();
         return redirect()->route('login');
+    }
+
+    public function welcome(){
+        return view('welcome');
     }
 }
