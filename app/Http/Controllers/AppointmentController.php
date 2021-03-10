@@ -5,16 +5,16 @@ use App\Models\Appointment;
 
 class AppointmentController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $userIp = $request->ip();
-        dd($userIp);
+        abort(404);
     }
 
     public function store(Request $request)
     {
+        abort_if($request->name === null ,404);
         $checkAvailability = Appointment::where('ipAddress', $request->ip())
-            ->where('created_at','<',now()->subMinutes(30 ))
+            ->where('created_at','>=',now()->subMinutes(30 ))
             ->orderBy('created_at','desc')
             ->first();
 
@@ -31,11 +31,15 @@ class AppointmentController extends Controller
             $apt->created_at  = now();
             $apt->save();
 
-            return redirect()->back()->with(array('message' => 'Appointment Created!', 'alert-type' => 'success'));
+            return redirect()->back()->with(array('message' => 'Appointment Created! We will contact you as soon as possible.',
+                'alert-type' =>
+                'success'));
 
         }else{
 
-            return redirect()->back()->with(array('message' => 'Please do not spam', 'alert-type' => 'error'));
+            return redirect()->back()->with(array('message' => 'You already created appointment. Please, do not spam',
+                'alert-type' =>
+                'error'));
 
         }
     }

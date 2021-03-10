@@ -25,11 +25,6 @@ class HomeController extends Controller
         } elseif( $user->role == '1' ) {
             return redirect()->route('dashboard.index');
 
-            /*Customer Panel*/
-        } elseif( $user->role == '2' ) {
-            dd('welcome user');
-//            return redirect()->route('admin.index');
-
             /*SuperAdmin Panel(For Developers)*/
         } elseif( $user->role == '3') {
             dd('welcome developer');
