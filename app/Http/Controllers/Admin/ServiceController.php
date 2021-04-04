@@ -26,4 +26,3 @@ class ServiceController extends Controller
         dd('working');
     }
 }
-
