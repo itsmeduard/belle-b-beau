@@ -20,7 +20,6 @@ class CreateAppointmentTable extends Migration
             $table->string('phone');
             $table->string('service');
             $table->string('schedule');
-            $table->string('esthetician');
             $table->text('note');
             $table->string('ip_address');
             $table->dateTime();

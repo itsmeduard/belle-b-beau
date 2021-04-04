@@ -1,8 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-
-use Illuminate\Support\Facades\Auth;
-use App\Models\User,Session;
+use Session;
 
 class HomeController extends Controller
 {
@@ -14,37 +12,31 @@ class HomeController extends Controller
 
     public function index()
     {
-        $user = User::find( Auth::user()->id );
-
-        if($user == null){
-            Auth::logout();
+        if(auth()->check() == null){
+            auth()->logout();
             Session::flush();
             return redirect()->route('login');
 
             /*Admin Panel*/
-        } elseif( $user->role == '1' ) {
-            return redirect()->route('dashboard.index');
+        } elseif( auth()->user()->role == '1' ) {
+//            dd('working');
+            return redirect()->route('admin.dashboard');
 
             /*SuperAdmin Panel(For Developers)*/
-        } elseif( $user->role == '3') {
+        } elseif( auth()->user()->role == '3') {
             dd('welcome developer');
-//            return redirect()->route('admin.index');
 
         } else {
-            Auth::logout();
+            auth()->logout();
             Session::flush();
         }
 
     }
 
-    public function logout()
+    public function log_out()
     {
-        Auth::logout();
+        auth()->logout();
         Session::flush();
         return redirect()->route('login');
-    }
-
-    public function welcome(){
-        return view('welcome');
     }
 }

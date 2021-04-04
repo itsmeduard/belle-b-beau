@@ -8,14 +8,14 @@
 
     <title>{{ config('app.name', 'Belle n Beau') }}</title>
 
-    <link rel="stylesheet" href="{{ asset('public/panelAssets/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
-    <link rel="stylesheet" href="{{ asset('public/panelAssets/fonts/fontawesome-all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/panelAssets/fonts/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/panelAssets/fonts/fontawesome5-overrides.min.css') }}">
+    <link rel="icon" type="image/png" sizes="180x180" href="{{ asset('panelAssets/img/circle-cropped.png')}}">
+    <link rel="stylesheet" href="{{ asset('panelAssets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('panelAssets/fonts/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('panelAssets/fonts/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('panelAssets/fonts/fontawesome5-overrides.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="{{ asset('public/panelAssets/css/Login-Form-Clean.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/panelAssets/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('panelAssets/css/Login-Form-Clean.css') }}">
+    <link rel="stylesheet" href="{{ asset('panelAssets/css/styles.css') }}">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <h2 class="sr-only">Login Form</h2>
-        <div class="illustration"><img class="img-fluid" src="{{ asset('public/panelAssets/img/bnbms_logo_2.png') }}" alt="Belle N Beau"></div>
+        <div class="illustration"><img class="img-fluid" src="{{ asset('panelAssets/img/bnbms_logo_2.png') }}" alt="Belle N Beau"></div>
         <div class="form-group">
             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
             @error('email')
@@ -43,21 +43,16 @@
         <div class="form-group">
             <button class="btn btn-primary btn-block" type="submit">{{ __('Login') }}</button>
         </div>
-        @if (Route::has('password.request'))
-            <a class="forgot" href="{{ route('password.request') }}">
-                {{ __('Forgot Your Password?') }}
-            </a>
-        @endif
+{{--        @if (Route::has('password.request'))--}}
+{{--            <a class="forgot" href="{{ route('password.request') }}">--}}
+{{--                {{ __('Forgot Your Password?') }}--}}
+{{--            </a>--}}
+{{--        @endif--}}
     </form>
-
-    <a href="redirect/facebook">Login in with Facebook</a>
-
-    <a href="redirect/google">Login in with Google</a>
-
 </div>
-<script src="{{ asset('public/panelAssets/js/jquery.min.js') }}"></script>
-<script src="{{ asset('public/panelAssets/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('public/panelAssets/js/bs-init.js') }}"></script>
+<script src="{{ asset('panelAssets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('panelAssets/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('panelAssets/js/bs-init.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </body>
 

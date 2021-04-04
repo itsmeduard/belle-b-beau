@@ -27,14 +27,43 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * Register the exception handling callbacks for the application.
+     * Report or log an exception.
      *
+     * @param  \Throwable  $exception
      * @return void
+     *
+     * @throws \Exception
      */
-    public function register()
+    public function report(Throwable $exception)
     {
-        $this->reportable(function (Throwable $e) {
-            //
-        });
+        parent::report($exception);
+    }
+
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $exception
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \Throwable
+     */
+    public function render($request, Throwable $e)
+    {
+        if ($this->isHttpException($e)) {
+            switch ($e->getStatusCode()) {
+
+                // not found
+                case '404':
+                    return \Response::view('errors.404',array(),404);
+                    break;
+
+                default:
+                    return $this->renderHttpException($e);
+                    break;
+            }
+        } else {
+            return parent::render($request, $e);
+        }
     }
 }

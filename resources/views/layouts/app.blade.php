@@ -1,83 +1,160 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>BnBMS - @if(auth()->user() == null) Belle n Beau @elseif( auth()->user()->role == '1' ) Admin Panel @else SuperAdmin Panel @endif</title>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--Icon image here--}}
+    <link rel="icon" type="image/png" sizes="180x180" href="{{ asset('panelAssets/img/circle-cropped.png')}}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    @if(auth()->user() == null)
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+        {{-- Welcome main assets --}}
+        <link rel="stylesheet" href="{{ asset('panelAssets/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('panelAssets/fonts/fontawesome-all.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('panelAssets/fonts/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('panelAssets/fonts/ionicons.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('panelAssets/fonts/fontawesome5-overrides.min.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+        <link rel="stylesheet" href="{{ asset('panelAssets/css/styles.css')}}">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        {{--Toastr Notification--}}
+        <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    @else
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        {{-- Admin main assets --}}
+        <link rel="stylesheet" href="{{ asset('panelAssets/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('panelAssets/fonts/fontawesome-all.min.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    @endif
+<!-- Alpine -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.x/dist/alpine.min.js" defer></script>
+
+    @livewireStyles
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.x.x/dist/trix.css">
+
+    {{--Sweet Alert Notification--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.css" />
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+@if(auth()->user() == null)
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+    {{-- Welcome Body --}}
+    <body style="font-family: font-family: &quot;Raleway&quot;, Helvetica, Arial, sans-serif;">
 
-                    </ul>
+    {{--Content Here--}}
+    {{ $slot }}
+    @else
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-                            
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+        {{-- Admin Body --}}
+        <body class="antialiased font-sans bg-gray-200" id="page-top">
+    <div id="wrapper">
+        {{--Navigation Bar--}}
+        @if( auth()->user()->role == '1' ) @include('admin.navbar') @else @include('superadmin.navbar') @endif
+        <div class="flex-column" id="content-wrapper">
+            <div id="content">
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                {{--Content Here--}}
+                {{ $slot }}
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                {{--Footer Here--}}
+                @include('layouts.footer')
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
+    @endif
+
+
+
+    @if(auth()->user() == null)
+
+        {{-- Extension Script Welcome Page --}}
+        <script src="{{ asset('panelAssets/js/jquery.min.js')}}"></script>
+        <script src="{{ asset('panelAssets/bootstrap/js/bootstrap.min.js')}}"></script>
+        <script src="{{ asset('panelAssets/js/bs-init.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+    @else
+
+        {{-- Extension Script Admin Panel --}}
+        <script src="{{ asset('panelAssets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('panelAssets/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+        <script src="{{ asset('panelAssets/js/script.min.js') }}"></script>
+    @endif
+
+    @livewireScripts
+    @stack('scripts')
+
+    {{-- Livewire Script --}}
+    <script src="https://unpkg.com/moment"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <script src="https://unpkg.com/trix@1.x.x/dist/trix.js"></script>
+
+    {{-- Sweetalet2 js --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    {{-- Essential Script --}}
+    <script>
+
+        {{-- Google Captcha --}}
+        $("form").submit(function(event) {
+            var recaptcha = $("#g-recaptcha-response").val();
+            if (recaptcha === "") {
+                event.preventDefault();
+                alert("Please check the recaptcha");
+            }
+        });
+
+        {{-- Toastr Notification --}}
+        @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type', 'info') }}";
+        switch(type){
+            case 'success':
+                toastr.success("{{ Session::get('message') }}");
+                break;
+
+            case 'error':
+                toastr.error("{{ Session::get('message') }}");
+                break;
+        }
+        @endif
+
+        /* Hide Modal Store and Update */
+        window.livewire.on('modalStore', () => {
+            $('#exampleModal').modal('hide');
+            $('#updateModal').modal('hide');
+        });
+
+        /* Hide Modal Delete */
+        window.livewire.on('modalDelete', () => {
+            $('#deleteModal').modal('hide');
+        });
+
+        /* Sweetalert2 */
+        window.addEventListener('swal',function(e){
+            Swal.fire(e.detail);
+        });
+
+        /* Currency Format */
+        $('.number').keypress(function(event) {
+            if ((event.which != 46 || $(this).val().indexOf('.') != -1) &&
+                ((event.which < 48 || event.which > 57) &&
+                    (event.which != 0 && event.which != 8))) {
+                event.preventDefault();
+            }
+
+            var text = $(this).val();
+
+            if ((text.indexOf('.') != -1) &&
+                (text.substring(text.indexOf('.')).length > 2) &&
+                (event.which != 0 && event.which != 8) &&
+                ($(this)[0].selectionStart >= text.length - 2)) {
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
-</html>

@@ -2,11 +2,13 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
+use Livewire\Component;
 
-class AppointmentController extends Controller
+class AppointmentController extends Component
 {
-    public function index()
+    public function render()
     {
+        dd('working');
         abort(404);
     }
 
@@ -25,7 +27,6 @@ class AppointmentController extends Controller
             $apt->phone       = $request->phone;
             $apt->service     = $request->service;
             $apt->schedule    = $request->schedule;
-            $apt->esthetician = $request->esthetician;
             $apt->note        = $request->note;
             $apt->ipAddress   = $request->ip();
             $apt->created_at  = now();
