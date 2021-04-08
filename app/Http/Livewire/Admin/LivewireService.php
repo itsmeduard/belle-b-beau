@@ -21,7 +21,7 @@ class LivewireService extends Component
     protected $queryString = ['search'];
 
     /*Item*/
-    public $service, $category, $price, $service_id;
+    public $service_id, $service, $category, $price, $status;
 
     public $updateMode = false;
 
@@ -29,15 +29,15 @@ class LivewireService extends Component
     {
         /*Get Services Data to Tables*/
         $service = Service::where(fn($query) => $query
-            ->where(  'service',  'like', '%' . $this->search . '%')
-            ->orWhere('category', 'like', '%' . $this->search . '%')
+                ->where(  'service',  'like', '%' . $this->search . '%')
+                ->orWhere('category', 'like', '%' . $this->search . '%')
             )
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate($this->perPage);
         $this->services = $service;
 
         /*For notifications*/
-        $appoint = Appointment::leftjoin('appointment_status as apts','apts.appt_id','appointment.id')
+        $appoint = Appointment::leftjoin('appointment_status as apts','apts.appt_id','appointments.id')
             ->where('apts.status','1')
             ->latest()->get();
         $this->appt = $appoint;
@@ -54,6 +54,7 @@ class LivewireService extends Component
         $this->service  = '';
         $this->category = '';
         $this->price    = '';
+        $this->status   = '';
     }
 
     public function store()
@@ -62,12 +63,17 @@ class LivewireService extends Component
             'service'   => 'required',
             'category'  => 'required',
             'price'     => 'required',
+            'status'    => 'required',
         ], ['required'  => 'The :attribute field is required']);
-        Service::updateOrCreate([
+        Service::updateOrInsert([
             'service'   => $this->service,
             'category'  => $this->category,
+        ],
+        [
             'price'     => $this->price * 100,
-        ]);
+            'status'    => $this->status,
+            'deleted_at' => null,
+        ]);/* Retrieve record if exist via deleted_at */
         $this->dispatchBrowserEvent('swal', [
             'title'     =>  'Service Created',
             'timer'     =>  5000,
@@ -87,6 +93,7 @@ class LivewireService extends Component
         $this->service    = $service->service;
         $this->category   = $service->category;
         $this->price      = number_format($service->price / 100, 2);
+        $this->status     = $service->status;
     }
 
     public function cancel()
@@ -101,6 +108,7 @@ class LivewireService extends Component
             'service'   => 'required',
             'category'  => 'required',
             'price'     => 'required',
+            'status'    => 'required',
         ],['required'   => 'The :attribute field is required']);
 
         $service = Service::findOrFail($this->service_id);
@@ -109,6 +117,7 @@ class LivewireService extends Component
             'service'   => $this->service,
             'category'  => $this->category,
             'price'     => $price * 100,
+            'status'    => $this->status,
         ]);
         $this->updateMode = false;
         $this->dispatchBrowserEvent('swal', [
@@ -132,18 +141,17 @@ class LivewireService extends Component
 
     public function delete($id)
     {
-        if($id){
-            Service::findOrFail($id)->delete();
-            $this->updateMode = false;
-            $this->dispatchBrowserEvent('swal', [
-                'title'     =>  'Service Deleted',
-                'timer'     =>  5000,
-                'icon'      =>  'warning',
-                'toast'     =>  true,
-                'position'  =>  'top-right'
-            ]);
-            $this->resetInputFields();
-        }
+        /*Apply SoftDelete Here*/
+        Service::findOrFail($id)->delete();
+        $this->updateMode = false;
+        $this->dispatchBrowserEvent('swal', [
+            'title'     =>  'Service Deleted',
+            'timer'     =>  5000,
+            'icon'      =>  'warning',
+            'toast'     =>  true,
+            'position'  =>  'top-right'
+        ]);
+        $this->resetInputFields();
         $this->emit('modalDelete');/*Close Modal*/
     }
 

@@ -44,7 +44,7 @@
                 <div class="d-none d-sm-block topbar-divider"></div>
                 <li class="nav-item dropdown no-arrow">
                     <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small" style="color: rgb(133, 135, 150);">{{ Auth::user()->name }}</span><img class="border rounded-circle img-profile" src="{{ asset('panelAssets/img/download.png') }}"></a>
-                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="{{route('admin.profile')}}"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
                             <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('log-out') }}"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
                         </div>
                     </div>
@@ -56,17 +56,17 @@
     {{-- Service Table --}}
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-0">Services</h3>
+            <h3 class="text-dark mb-0">Employee</h3>
             <a class="btn btn-primary btn-icon-split" role="button" data-toggle="modal" data-target="#exampleModal">
                 <span class="text-white-50 icon">
                     <i class="fas fa-plus"></i>
                 </span>
-                <span class="text-white text">New Service</span>
+                <span class="text-white text">New Employee</span>
             </a>
         </div>
         <div class="card shadow">
             <div class="card-header py-3">
-                <p class="text-primary m-0 font-weight-bold">Services Table</p>
+                <p class="text-primary m-0 font-weight-bold">Employee Table</p>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -93,27 +93,29 @@
                 <div class="table-responsive table mt-2">
                     <table class="table table-hover my-0">
                         <thead>
-                            <th wire:click="sortBy('service')" class="sorting">Service</th>
-                            <th wire:click="sortBy('category')">Category</th>
-                            <th wire:click="sortBy('price')">Price</th>
+                            <th wire:click="sortBy('name')" class="sorting">Employee</th>
+                            <th wire:click="sortBy('email')">Email</th>
+                            <th wire:click="sortBy('address')">Address</th>
+                            <th wire:click="sortBy('mobile')">Mobile</th>
                             <th wire:click="sortBy('status')">Status</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
-                        @forelse($item as $serv)
-                            <tr wire:loading.class.delay="opacity-50" wire:key="row-{{ $serv->id }}">
-                                <td>{{$serv->service}}</td>
-                                <td>{{$serv->category}}</td>
-                                <td>₱{{number_format($serv->price / 100, 2)}}</td>
-                                <td>{{$serv->status}}</td>
+                        @forelse($item as $emp)
+                            <tr wire:loading.class.delay="opacity-50" wire:key="row-{{ $emp->id }}">
+                                <td><img class="rounded-circle mr-2" width='30' height='30' src='{{ Storage::url($emp->photo) }}'/>{{$emp->name}}</td>
+                                <td>{{$emp->email}}</td>
+                                <td>{{$emp->address}}</td>
+                                <td>{{$emp->mobile}}</td>
+                                <td>{{$emp->status}}</td>
                                 <td>
-                                    <a class="btn btn-success btn-icon-split" role="button" data-toggle="modal" data-target="#updateModal" wire:click="edit({{ $serv->id }})">
+                                    <a class="btn btn-success btn-icon-split" role="button" data-toggle="modal" data-target="#updateModal" wire:click="edit({{ $emp->id }})">
                                         <span class="text-white-50 icon">
                                             <i class="fas fa-check"></i>
                                         </span>
                                         <span class="text-white text">Edit</span>
                                     </a>
-                                    <a class="btn btn-danger btn-icon-split" role="button" data-toggle="modal" data-target="#deleteModal" wire:click="show({{ $serv->id }})">
+                                    <a class="btn btn-danger btn-icon-split" role="button" data-toggle="modal" data-target="#deleteModal" wire:click="show({{ $emp->id }})">
                                         <span class="text-white-50 icon">
                                             <i class="fas fa-trash"></i>
                                         </span>
@@ -143,39 +145,34 @@
         </div>
     </div>
 
-    {{-- Add Service Modal --}}
+    {{-- Add Employee Modal --}}
     <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Service</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label>Service</label>
-                            <input type="text" class="form-control" wire:model="service" placeholder="Enter Service" maxlength='50'>
-                            @error('service') {{ $message }} @enderror
+                            <label>Employee</label>
+                            <input type="text" class="form-control" wire:model="name" placeholder="Employee Name" maxlength='50'>
+                            @error('name') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
-                            <label>Category</label>
-                            <select class="form-control custom-select" wire:model="category">
-                                <option value=''>--Select Category--</option>
-                                <option value='Face'>Face</option>
-                                <option value='Nails'>Nails</option>
-                                <option value='Cautery'>Cautery</option>
-                                <option value='Waxing'>Waxing</option>
-                                <option value='RF Cavitation'>RF Cavitation</option>
-                                <option value='Eyelashes Extension'>Eyelashes Extension</option>
-                                <option value='Hair'>Hair</option>
-                                <option value='Hair & Make Up'>Hair & Make Up</option>
-                            </select>
-                            @error('category') {{ $message }} @enderror
+                            <label>Email</label>
+                            <input type='email' class="form-control" wire:model="email" placeholder="Email" maxlength='50'>
+                            @error('email') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
-                            <label>Price</label>
-                            <input type="text" class="form-control number" name='price' wire:model="price" placeholder='Enter Price' maxlength='6' autocomplete='off'>
-                            @error('price') {{ $message }} @enderror
+                            <label>Address</label>
+                            <textarea class="form-control" wire:model="address" placeholder="Address" maxlength='80'></textarea>
+                            @error('address') {{ $message }} @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile</label>
+                            <input type='number' class="form-control" wire:model="mobile" placeholder="Mobile" maxlength='20'>
+                            @error('mobile') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
                             <label>Status</label>
@@ -186,6 +183,15 @@
                             </select>
                             @error('status') {{ $message }} @enderror
                         </div>
+                        <div class="form-group">
+                            <label>Employee Image</label>
+                            <input type='file' class="form-control" wire:model="photo">
+                            @error('photo') {{ $message }} @enderror
+                            @if ($photo)
+                                <img width='150' height='150' src="{{ $photo->temporaryUrl() }}">
+                            @endif
+                        </div>
+                        <div class="form-group" wire:loading wire:target="photo">Uploading...</div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -196,64 +202,71 @@
         </div>
     </div>
 
-    {{-- Update Service Modal --}}
+    {{-- Update Employee Modal --}}
     <div wire:ignore.self class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Update Service</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Update Employee</h5>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <input type="hidden" wire:model="service_id">
-                            <label>Service</label>
-                            <input type="text" class="form-control" wire:model="service" placeholder="Enter Service" maxlength='50'>
-                            @error('service') {{ $message }} @enderror
+                            <label>Employee</label>
+                            <input type="text" class="form-control" wire:model="name" placeholder="Employee Name" maxlength='50'>
+                            @error('name') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
-                            <label>Category</label>
-                            <select class="form-control custom-select" wire:model="category">
-                                <option value='Face'>Face</option>
-                                <option value='Nails'>Nails</option>
-                                <option value='Cautery'>Cautery</option>
-                                <option value='Waxing'>Waxing</option>
-                                <option value='RF Cavitation'>RF Cavitation</option>
-                                <option value='Eyelashes Extension'>Eyelashes Extension</option>
-                                <option value='Hair'>Hair</option>
-                                <option value='Hair & Make Up'>Hair & Make Up</option>
-                            </select>
-                            @error('category') {{ $message }} @enderror
+                            <label>Email</label>
+                            <input type='email' class="form-control" wire:model="email" placeholder="Email" maxlength='50'>
+                            @error('email') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
-                            <label>Price</label>
-                            <input type="text" class="form-control number" name='price' wire:model="price" placeholder='Enter Price' maxlength='6' autocomplete='off'>
-                            @error('price') {{ $message }} @enderror
+                            <label>Address</label>
+                            <textarea class="form-control" wire:model="address" placeholder="Address" maxlength='80'></textarea>
+                            @error('address') {{ $message }} @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile</label>
+                            <input type='number' class="form-control" wire:model="mobile" placeholder="Mobile" maxlength='20'>
+                            @error('mobile') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control custom-select" wire:model="status">
+                                <option value=''>--Select Status--</option>
                                 <option value='Active'>Active</option>
                                 <option value='Disable'>Disable</option>
                             </select>
                             @error('status') {{ $message }} @enderror
                         </div>
+                        <div class="form-group">
+                            <label>Employee Image</label>
+                            <input type='file' class="form-control" wire:model="newPhoto">
+                            @error('newPhoto') {{ $message }} @enderror
+                            @if($newPhoto)
+                                <img src="{{ $newPhoto->temporaryUrl() }}" width='150' height='150' />
+                            @else
+                                <img src="{{ Storage::url($editPhoto) }}" width='150' height='150'/>
+                            @endif
+                        </div>
+                        <div class="form-group" wire:loading wire:target="newPhoto">Uploading...</div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-arrow-up"></i> Close</button>
-                    <button type="button" wire:click.prevent="update()" class="btn btn-success close-modal"><i class="fa fa-check"></i> Save changes</button>
+                    <button type="button" wire:click.prevent="update({{$emp_id}})" class="btn btn-success close-modal"><i class="fa fa-check"></i> Save changes</button>
                 </div>
             </div>
         </div>
     </div>
 
-    {{-- Delete Service Modal --}}
+    {{-- Delete Employee Modal --}}
     <div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
        <div class="modal-dialog" role="document">
           <div class="modal-content">
              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-trash"></i> Delete Service</h5>
+                <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-trash"></i> Delete Employee</h5>
              </div>
              <div class="modal-body">
               <div class="alert alert-danger" role="alert">
@@ -262,7 +275,7 @@
              </div>
              <div class="modal-footer">
                 <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-arrow-up"></i> Close</button>
-                <button type="button" wire:click.prevent="delete({{ $service_id}})" class="btn btn-danger close-modal"><i class="fa fa-trash"></i> Delete</button>
+                <button type="button" wire:click.prevent="delete({{ $emp_id}})" class="btn btn-danger close-modal"><i class="fa fa-trash"></i> Delete</button>
              </div>
           </div>
        </div>

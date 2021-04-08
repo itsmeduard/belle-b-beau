@@ -6,9 +6,9 @@
             </div>
         </a>
         <ul class="navbar-nav text-change" id="accordionSidebar">
-            <li class="nav-item"><a class="nav-link active" href="{{route('admin.dashboard')}}"><i class="fas fa-tachometer-alt" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">&nbsp;Dashboard</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="{{route('admin.service')}}"><i class="fas fa-chart-area" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">&nbsp;Services</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="tables.html"><i class="fas fa-table" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">Pages</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('admin.dashboard')}}"><i class="fas fa-tachometer-alt" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">&nbsp;Dashboard</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('admin.service')}}"><i class="fas fa-chart-area" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">&nbsp;Service Management</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('admin.employee')}}"><i class="fas fa-table" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">Employee Management</span></a></li>
             <li class="nav-item"><a class="nav-link" href="tables.html"><i class="fas fa-table" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">Appointment</span></a></li>
             <li class="nav-item"><a class="nav-link" href="tables.html" style="font-weight: 400;"><i class="fas fa-table" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">Add Customer</span></a></li>
             <li class="nav-item"><a class="nav-link" href="tables.html"><i class="fas fa-table" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">Customer List</span></a></li>
@@ -17,6 +17,5 @@
             <li class="nav-item"><a class="nav-link" href="tables.html"><i class="fas fa-table" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">Search Appointment</span></a></li>
             <li class="nav-item"><a class="nav-link" href="tables.html"><i class="fas fa-table" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">Search Invoice</span></a></li>
         </ul>
-        <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
     </div>
 </nav>

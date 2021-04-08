@@ -45,6 +45,6 @@ class LivewireAppointment extends Component
 
     public function render()
     {
-        return view('welcome', ['services' => Service::latest()->get()]);
+        return view('welcome', ['services' => Service::where('status','Active')->get()]);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\{Auth,Route};
 use App\Http\Controllers\HomeController;
-use App\Http\Livewire\{ LivewireAppointment, Admin\LivewireDashboard, Admin\LivewireService };
+use App\Http\Livewire\{ LivewireAppointment, Admin\LivewireDashboard, Admin\LivewireService, Admin\LivewireEmployee, Admin\LivewireProfile };
 
 Route::get('/',LivewireAppointment::class);
 
@@ -18,13 +18,15 @@ Route::group(['middleware' => 'auth'], function() {
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => "admin."], function() {
         Route::get('dashboard', LivewireDashboard::class)->name('dashboard');
         Route::get('service', LivewireService::class)->name('service');
+        Route::get('employee', LivewireEmployee::class)->name('employee');
+        Route::get('profile', LivewireProfile::class)->name('profile');
     });
 });
 
 Route::get('/clear', function() {
     Artisan::call('route:cache');
     Artisan::call('view:clear');
-    Artisan::call('config:clear');
+    Artisan::call('config:cache');
     return 'Cleared';
 });
 

@@ -19,7 +19,7 @@
                     <h1 class="text-capitalize text-center text-black-50 heading-navbar">Contact</h1>
                 </a></div>
         </div>
-        <hr data-toggle="tooltip" data-bss-tooltip>
+        <hr>
     </div>
     <div class="container pt-5 pb-5" id="welcome">
         <div class="row">
@@ -65,73 +65,40 @@
                     <li class="nav-item text-monospace" role="presentation"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-2" style="margin: 0px 5px;color: #b17d89;">NAILS</a></li>
                     <li class="nav-item text-monospace" role="presentation"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-3" style="margin: 0px 5px;color: #b17d89;">CAUTERY</a></li>
                     <li class="nav-item text-monospace" role="presentation"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-4" style="margin: 0px 5px;color: #b17d89;">WAXING</a></li>
-                    <li class="nav-item text-monospace" role="presentation"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-5" style="margin: 0px 5px;color: #b17d89;">RF CAVITATION</a></li>
-                    <li class="nav-item text-monospace" role="presentation"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-6" style="margin: 0px 5px;color: #b17d89;">EYELASHES EXTENSION</a></li>
-                    <li class="nav-item text-monospace" role="presentation"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-7" style="margin: 0px 5px;color: #b17d89;">HAIR</a></li>
-                    <li class="nav-item text-monospace" role="presentation"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-8" style="margin: 0px 5px;color: #b17d89;">HAIR & MAKE-UP</a></li>
+{{--                    <li class="nav-item text-monospace" role="presentation"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-5" style="margin: 0px 5px;color: #b17d89;">RF CAVITATION</a></li>--}}
+{{--                    <li class="nav-item text-monospace" role="presentation"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-6" style="margin: 0px 5px;color: #b17d89;">EYELASHES EXTENSION</a></li>--}}
+{{--                    <li class="nav-item text-monospace" role="presentation"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-7" style="margin: 0px 5px;color: #b17d89;">HAIR</a></li>--}}
+{{--                    <li class="nav-item text-monospace" role="presentation"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-8" style="margin: 0px 5px;color: #b17d89;">HAIR & MAKE-UP</a></li>--}}
                 </ul>
                 <div class="tab-content" style="border-radius: 13px;box-shadow: 0 0 4px #b17d89;background: #f9f9f9;">
                     <div class="tab-pane fade show active" role="tabpanel" id="tab-1">
                         <div class="row">
                             <div class="col-sm-12 col-lg-6 p-5">
-                                <h3 class="text-center">MANICURES &amp; PEDICURES<br></h3>
                                 <div class="table-responsive table-borderless">
                                     <table class="table table-striped table-bordered table-sm">
                                         <thead>
                                             <tr>
-                                                <th></th>
-                                                <th>Mani</th>
-                                                <th>Pedi</th>
+                                                <th>Service</th>
+                                                <th>Price(PHP)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><strong>Classic</strong></td>
-                                                <td>₱15</td>
-                                                <td>₱25</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Shellac/Gel</strong></td>
-                                                <td>₱27</td>
-                                                <td>₱37</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Aroma therapy Spa</strong><br>
-                                                    <ul class="text-monospace">
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Aroma therapy Soak</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Callus Treatment*</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Sea Salt Scrub</strong><br></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>SeaAroma Therapy Massage</strong><br>
-                                                            <ul>
-                                                                <li>Included in pedicures only</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td>₱25</td>
-                                                <td>₱35</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Royal Spa</strong><br>
-                                                    <ul class="text-monospace">
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Aroma therapy Soak</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Callus Treatment*</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Sea Salt Scrub</strong><br></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>SeaAroma Therapy Massage</strong><br>
-                                                            <ul>
-                                                                <li>Included in pedicures only</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td>₱45</td>
-                                                <td>₱55</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Children(10 &amp; under)</strong></td>
-                                                <td>₱10</td>
-                                                <td>₱15</td>
-                                            </tr>
+                                            @forelse($services as $serv)
+                                                @if($serv->category == 'Face')
+                                                    <tr>
+                                                        <td><strong>{{ $serv->service }}</strong></td>
+                                                        <td>₱{{number_format($serv->price / 100, 2)}}</td>
+                                                    </tr>
+                                                @else
+                                                    <tr>
+                                                        <td>No Record Found...</td>
+                                                    </tr>
+                                                @endif
+                                            @empty
+                                                <tr>
+                                                    <td>No Record Found...</td>
+                                                </tr>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
@@ -147,64 +114,31 @@
                                 <picture class="d-md-flex d-lg-flex d-xl-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center"><img class="img-fluid border rounded-pill d-flex d-md-flex d-lg-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center" src="{{ asset('panelAssets/img/services2.jpg')}}" loading="lazy" alt="belle-n-beau-services-1" width="350"></picture>
                             </div>
                             <div class="col-sm-12 col-lg-6 p-5">
-                                <h3 class="text-center">MANICURES &amp; PEDICURES<br></h3>
                                 <div class="table-responsive table-borderless">
                                     <table class="table table-striped table-bordered table-sm">
                                         <thead>
                                             <tr>
-                                                <th></th>
-                                                <th>Mani</th>
-                                                <th>Pedi</th>
+                                                <th>Service</th>
+                                                <th>Price(PHP)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><strong>Classic</strong></td>
-                                                <td>₱15</td>
-                                                <td>₱25</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Shellac/Gel</strong></td>
-                                                <td>₱27</td>
-                                                <td>₱37</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Aroma therapy Spa</strong><br>
-                                                    <ul class="text-monospace">
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Aroma therapy Soak</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Callus Treatment*</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Sea Salt Scrub</strong><br></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>SeaAroma Therapy Massage</strong><br>
-                                                            <ul>
-                                                                <li>Included in pedicures only</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td>₱25</td>
-                                                <td>₱35</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Royal Spa</strong><br>
-                                                    <ul class="text-monospace">
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Aroma therapy Soak</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Callus Treatment*</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Sea Salt Scrub</strong><br></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>SeaAroma Therapy Massage</strong><br>
-                                                            <ul>
-                                                                <li>Included in pedicures only</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td>₱45</td>
-                                                <td>₱55</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Children(10 &amp; under)</strong></td>
-                                                <td>₱10</td>
-                                                <td>₱15</td>
-                                            </tr>
+                                            @forelse($services as $serv)
+                                                @if($serv->category == 'Nails')
+                                                    <tr>
+                                                        <td><strong>{{ $serv->service }}</strong></td>
+                                                        <td>₱{{number_format($serv->price / 100, 2)}}</td>
+                                                    </tr>
+                                                @else
+                                                    <tr>
+                                                        <td>No Record Found...</td>
+                                                    </tr>
+                                                @endif
+                                            @empty
+                                                <tr>
+                                                    <td>No Record Found...</td>
+                                                </tr>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
@@ -214,64 +148,31 @@
                     <div class="tab-pane fade" role="tabpanel" id="tab-3">
                         <div class="row">
                             <div class="col-sm-12 col-lg-6 p-5">
-                                <h3 class="text-center">MANICURES &amp; PEDICURES<br></h3>
                                 <div class="table-responsive table-borderless">
                                     <table class="table table-striped table-bordered table-sm">
                                         <thead>
                                             <tr>
-                                                <th></th>
-                                                <th>Mani</th>
-                                                <th>Pedi</th>
+                                                <th>Service</th>
+                                                <th>Price(PHP)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><strong>Classic</strong></td>
-                                                <td>₱15</td>
-                                                <td>₱25</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Shellac/Gel</strong></td>
-                                                <td>₱27</td>
-                                                <td>₱37</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Aroma therapy Spa</strong><br>
-                                                    <ul class="text-monospace">
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Aroma therapy Soak</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Callus Treatment*</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Sea Salt Scrub</strong><br></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>SeaAroma Therapy Massage</strong><br>
-                                                            <ul>
-                                                                <li>Included in pedicures only</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td>₱25</td>
-                                                <td>₱35</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Royal Spa</strong><br>
-                                                    <ul class="text-monospace">
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Aroma therapy Soak</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Callus Treatment*</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Sea Salt Scrub</strong><br></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>SeaAroma Therapy Massage</strong><br>
-                                                            <ul>
-                                                                <li>Included in pedicures only</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td>₱45</td>
-                                                <td>₱55</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Children(10 &amp; under)</strong></td>
-                                                <td>₱10</td>
-                                                <td>₱15</td>
-                                            </tr>
+                                            @forelse($services as $serv)
+                                                @if($serv->category == 'Cautery')
+                                                    <tr>
+                                                        <td><strong>{{ $serv->service }}</strong></td>
+                                                        <td>₱{{number_format($serv->price / 100, 2)}}</td>
+                                                    </tr>
+                                                @else
+                                                    <tr>
+                                                        <td>No Record Found...</td>
+                                                    </tr>
+                                                @endif
+                                            @empty
+                                                <tr>
+                                                    <td>No Record Found...</td>
+                                                </tr>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
@@ -287,64 +188,31 @@
                                 <picture class="d-md-flex d-lg-flex d-xl-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center"><img class="img-fluid border rounded-pill d-flex d-md-flex d-lg-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center" src="{{ asset('panelAssets/img/services2.jpg')}}" loading="lazy" alt="belle-n-beau-services-1" width="350"></picture>
                             </div>
                             <div class="col-sm-12 col-lg-6 p-5">
-                                <h3 class="text-center">MANICURES &amp; PEDICURES<br></h3>
                                 <div class="table-responsive table-borderless">
                                     <table class="table table-striped table-bordered table-sm">
                                         <thead>
                                             <tr>
-                                                <th></th>
-                                                <th>Mani</th>
-                                                <th>Pedi</th>
+                                                <th>Service</th>
+                                                <th>Price(PHP)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><strong>Classic</strong></td>
-                                                <td>₱15</td>
-                                                <td>₱25</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Shellac/Gel</strong></td>
-                                                <td>₱27</td>
-                                                <td>₱37</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Aroma therapy Spa</strong><br>
-                                                    <ul class="text-monospace">
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Aroma therapy Soak</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Callus Treatment*</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Sea Salt Scrub</strong><br></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>SeaAroma Therapy Massage</strong><br>
-                                                            <ul>
-                                                                <li>Included in pedicures only</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td>₱25</td>
-                                                <td>₱35</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Royal Spa</strong><br>
-                                                    <ul class="text-monospace">
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Aroma therapy Soak</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Callus Treatment*</strong></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>Sea Salt Scrub</strong><br></li>
-                                                        <li style="font-weight: 100;font-size: 90%;line-height: 1.2;"><strong>SeaAroma Therapy Massage</strong><br>
-                                                            <ul>
-                                                                <li>Included in pedicures only</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td>₱45</td>
-                                                <td>₱55</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Children(10 &amp; under)</strong></td>
-                                                <td>₱10</td>
-                                                <td>₱15</td>
-                                            </tr>
+                                            @forelse($services as $serv)
+                                                @if($serv->category == 'Waxing')
+                                                    <tr>
+                                                        <td><strong>{{ $serv->service }}</strong></td>
+                                                        <td>₱{{number_format($serv->price / 100, 2)}}</td>
+                                                    </tr>
+                                                @else
+                                                    <tr>
+                                                        <td>No Record Found...</td>
+                                                    </tr>
+                                                @endif
+                                            @empty
+                                                <tr>
+                                                    <td>No Record Found...</td>
+                                                </tr>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
@@ -356,8 +224,8 @@
             <div style="border-radius: 13px;box-shadow: 0 0 4px #b17d89;background: #f9f9f9;">
                 <div class="row">
                     <div class="col-sm-12 col-lg-4 col-xl-4 offset-lg-0 d-xl-flex p-4" data-aos="fade-up" data-aos-delay="250" data-aos-once="true">
-                        <div style="padding: 0px 25px;padding-top: 15px;">
-                            <picture><img class="img-fluid" src="{{ asset('panelAssets/img/carousel5.jpg')}}" loading="lazy" width="300" height="300"></picture>
+                        <div style="padding: 15px 25px 0px;">
+                            <picture><img class="img-fluid" src="{{ asset('panelAssets/img/carousel5.jpg')}}" loading="lazy" width="300" height="300" alt="Carousel 5"></picture>
                             <h2 class="pt-2">Special Events</h2>
                             <p>Enjoy a serene spa experience while celebrating a special occasion with family and friends! We're the perfect venue for:<br></p>
                             <ul>
@@ -370,14 +238,14 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-xl-4 d-xl-flex p-4" data-aos="fade-up" data-aos-delay="250" data-aos-once="true">
-                        <div style="padding: 0px 25px;padding-top: 15px;">
-                            <picture><img class="img-fluid" src="{{ asset('panelAssets/img/sanitation.jpg')}}" loading="lazy" width="300" height="300"></picture>
+                        <div style="padding: 15px 25px 0px;">
+                            <picture><img class="img-fluid" src="{{ asset('panelAssets/img/sanitation.jpg')}}" loading="lazy" width="300" height="300" alt="Sanitation"></picture>
                             <h2 class="pt-2">Sanitation First!</h2>
                             <p>We take sanitation seriously! Many of our supplies are disposable and we disinfect all tools after every client. The safety of our clients is our top priority -- we use hospital-grade disinfectants and sterilizers to clean all tools to prevent cross-contamination.<br></p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-xl-4 d-xl-flex p-4" data-aos="fade-up" data-aos-delay="250" data-aos-once="true">
-                        <div style="padding: 0px 25px;padding-top: 15px;">
+                        <div style="padding: 15px 25px 0px;">
                             <picture><img class="img-fluid" src="{{ asset('panelAssets/img/carousel6.jpg')}}" loading="lazy"></picture>
                             <h2 class="pt-2">About Us</h2>
                             <p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br></p>
@@ -394,7 +262,7 @@
         <h5 class="text-center pt-3 pb-4">We welcome both walk-ins and future appointments!<br></h5>
         <h4 class="text-center">POBLACION, TALIBON, BOHOL<br></h4>
         <h4 class="text-center">BESIDE BLESSED TRINITY CATHEDRAL<br></h4>
-        <h4 class="text-center pb-5">(+63) 998-637-7363<br></h4><iframe allowfullscreen frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBe0UW6gOv4_Dwzl5-dU6QTGARcB1hVAvg&amp;q=10.151376%2C124.3259057&amp;zoom=19&amp;maptype=satellite" width="100%" height="400"></iframe>
+        <h4 class="text-center pb-5">(+63) 998-637-7363<br></h4><iframe allowfullscreen frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBe0UW6gOv4_Dwzl5-dU6QTGARcB1hVAvg&amp;q=10.151376%2C124.3259057&amp;zoom=19&amp;maptype=satellite" width="100%" height="400" loading='lazy'></iframe>
         <div class="row pt-5">
             <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="250" data-aos-once="true">
                 <div class="heading-line">
@@ -436,39 +304,39 @@
                                 <div class="col-lg-6 p-2"><input class="border rounded-pill form-control" type="text" placeholder="Your Mobile" name="phone" autocomplete="off" minlength="9" maxlength="15" required pattern="[0-9\-]+" title="Correct mobile no. only"></div>
                                 <div class="col-lg-6 p-2">
                                     <select class="border rounded-pill custom-select" name="service" required>
-                                        <option selected disabled>--Select Category--</option>
+                                        <option selected disabled>--Select Service--</option>
                                         @forelse($services as $serv)
                                             @if($serv->category == "Face")
                                                 <optgroup label="Face">
-                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}</option>
+                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
                                                 </optgroup>
                                             @elseif($serv->category == "Nails")
                                                 <optgroup label="Nails">
-                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}</option>
+                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
                                                  </optgroup>
                                             @elseif($serv->category == "Cautery")
                                                 <optgroup label="Cautery">
-                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}</option>
+                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
                                                  </optgroup>
                                             @elseif($serv->category == "Waxing")
                                                 <optgroup label="Waxing">
-                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}</option>
+                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
                                                  </optgroup>
                                             @elseif($serv->category == "RF Cavitation")
                                                 <optgroup label="RF Cavitation">
-                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}</option>
+                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
                                                  </optgroup>
                                             @elseif($serv->category == "Eyelashes Extension")
                                                 <optgroup label="Eyelashes Extension">
-                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}</option>
+                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
                                                  </optgroup>
                                             @elseif($serv->category == "Hair")
                                                  <optgroup label="Hair">
-                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}</option>
+                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
                                                  </optgroup>
                                             @elseif($serv->category == "Hair & Make Up")
                                                 <optgroup label="Hair & Make Up">
-                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}</option>
+                                                    <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
                                                  </optgroup>
                                             @endif
                                         @empty
