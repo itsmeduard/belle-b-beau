@@ -299,9 +299,10 @@
                         <form action='{{ route('appointment.store') }}' method='POST' enctype="multipart/form-data">
                             @csrf
                             <div class="form-row">
-                                <div class="col-lg-6 p-2"><input class="border rounded-pill form-control" type="text" placeholder="Your Name" name="name" autocomplete="off" minlength="5" maxlength="50" required title="This field is required"></div>
-                                <div class="col-lg-6 p-2"><input class="border rounded-pill form-control" type="text" placeholder="Your Email" autocomplete="off" inputmode="email" required maxlength="50" minlength="10" name="email"></div>
-                                <div class="col-lg-6 p-2"><input class="border rounded-pill form-control" type="text" placeholder="Your Mobile" name="phone" autocomplete="off" minlength="9" maxlength="15" required pattern="[0-9\-]+" title="Correct mobile no. only"></div>
+                                <div class="col-lg-4 p-2"><input class="border rounded-pill form-control" type="text" placeholder="Your Name" name="name" autocomplete="off" minlength="5" maxlength="50" required title="This field is required"></div>
+                                <div class="col-lg-4 p-2"><input class="border rounded-pill form-control" type="text" placeholder="Your Email" autocomplete="off" inputmode="email" required maxlength="50" minlength="10" name="email"></div>
+                                <div class="col-lg-4 p-2"><input class="border rounded-pill form-control" type="text" placeholder="Your Mobile" name="phone" autocomplete="off" minlength="9" maxlength="15" required pattern="[0-9\-]+" title="Correct mobile no. only"></div>
+                                <div class="col-lg-12 p-2"><textarea class="border rounded-pill form-control" type="text" placeholder="Your Address" name="address" autocomplete="off" minlength="9" maxlength="80" required title="Address"></textarea></div>
                                 <div class="col-lg-6 p-2">
                                     <select class="border rounded-pill custom-select" name="service" required>
                                         <option selected disabled>--Select Service--</option>
@@ -348,8 +349,8 @@
                                     $petsa = new  DateTime('now +1 days');
                                     $petsa= $petsa->format('Y-m-d\TH:i');
                                 @endphp
-                                <div class="col-lg-6 col-xl-12 p-2"><input class="border rounded-pill form-control" type="datetime-local" required name="schedule" min="@php echo $petsa @endphp"></div>
-                                <div class="col-lg-12 p-2"><textarea class="border rounded-pill form-control" name="note" autocomplete="off" spellcheck="false" required placeholder="&nbsp;&nbsp;Your comment"></textarea></div>
+                                <div class="col-lg-6 p-2"><input class="border rounded-pill form-control" type="datetime-local" required name="schedule" min="@php echo $petsa @endphp"></div>
+                                <div class="col-lg-12 p-2"><textarea class="border rounded-pill form-control" name="note" autocomplete="off" spellcheck="false" required placeholder="&nbsp;&nbsp;Note"></textarea></div>
                                 <div class="col-lg-12 p-2">
                                     <div class="custom-control text-center custom-switch"><input class="custom-control-input" type="checkbox" id="formCheck-1" required=""><label class="custom-control-label" for="formCheck-1">I agree to&nbsp;<a href="#" target="_blank">Terms &amp; Conditions</a>&nbsp;and&nbsp;<a href="#" target="_blank">Privacy Policy.</a></label></div>
                                 </div>

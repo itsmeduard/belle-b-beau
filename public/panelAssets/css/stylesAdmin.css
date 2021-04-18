@@ -1,0 +1,13 @@
+/*input[type=checkbox].btn-check{ display:none; }*/
+
+/*.markDoneSubmitView { display: none; }*/
+
+/*.markDone:checked~.markDoneSubmitView{ display: block; }*/
+
+/*.markDone:not(:checked)~.markDoneSubmitView{ display: none; }*/
+
+/*.markDone:checked~.markDoneView{ display: none; }.markDoneSubmitView{ display: none; }*/
+
+/*.markDone:checked~.markDoneSubmitView{ display: block; }*/
+
+/*.markDone:not(:checked)~.markDoneView{ display: block; }*/

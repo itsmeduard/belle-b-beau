@@ -11,7 +11,7 @@
                 <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
                     <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" aria-labelledby="searchDropdown">
                         <form class="form-inline mr-auto navbar-search w-100">
-                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                            <div class="input-group">
                                 <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
                             </div>
                         </form>
@@ -26,7 +26,7 @@
                         <div class="dropdown-menu dropdown-menu-right dropdown-list animated--grow-in" wire:poll.10s>
                             <h6 class="dropdown-header">Appointments</h6>
                             @forelse($appt as $appt)
-                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                <a class="dropdown-item d-flex align-items-center" href="{{route('admin.appointment')}}">
                                     <div class="mr-3">
                                         <div class="bg-primary icon-circle"><i class="fas fa-file-alt text-white"></i></div>
                                     </div>
@@ -37,7 +37,7 @@
                             @empty
                                 No record found...
                             @endforelse
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Appointment</a>
+                            <a class="dropdown-item text-center small text-gray-500" href="{{route('admin.appointment')}}">Show All Appointment</a>
                         </div>
                     </div>
                 </li>
@@ -93,11 +93,11 @@
                 <div class="table-responsive table mt-2">
                     <table class="table table-hover my-0">
                         <thead>
-                            <th wire:click="sortBy('name')" class="sorting">Employee</th>
-                            <th wire:click="sortBy('email')">Email</th>
-                            <th wire:click="sortBy('address')">Address</th>
-                            <th wire:click="sortBy('mobile')">Mobile</th>
-                            <th wire:click="sortBy('status')">Status</th>
+                            <th style="cursor: pointer;" scope="col" wire:click="sortBy('name')"><i data-mdb-sort="field_1" class="datatable-sort-icon fas fa-arrow-up" style="transform: rotate(0deg);"></i> Employee</th>
+                            <th style="cursor: pointer;" scope="col" wire:click="sortBy('email')"><i data-mdb-sort="field_1" class="datatable-sort-icon fas fa-arrow-up" style="transform: rotate(0deg);"></i> Email</th>
+                            <th style="cursor: pointer;" scope="col" wire:click="sortBy('address')"><i data-mdb-sort="field_1" class="datatable-sort-icon fas fa-arrow-up" style="transform: rotate(0deg);"></i> Address</th>
+                            <th style="cursor: pointer;" scope="col" wire:click="sortBy('mobile')"><i data-mdb-sort="field_1" class="datatable-sort-icon fas fa-arrow-up" style="transform: rotate(0deg);"></i> Mobile</th>
+                            <th style="cursor: pointer;" scope="col" wire:click="sortBy('status')"><i data-mdb-sort="field_1" class="datatable-sort-icon fas fa-arrow-up" style="transform: rotate(0deg);"></i> Status</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
@@ -107,7 +107,9 @@
                                 <td>{{$emp->email}}</td>
                                 <td>{{$emp->address}}</td>
                                 <td>{{$emp->mobile}}</td>
-                                <td>{{$emp->status}}</td>
+                                @if($emp->status == 'Active')<td><span class="alert-success">{{$emp->status}}</span></td>
+                                @elseif($emp->status == 'Disable')<td><span class="alert-danger">{{$emp->status}}</span></td>
+                                @endif
                                 <td>
                                     <a class="btn btn-success btn-icon-split" role="button" data-toggle="modal" data-target="#updateModal" wire:click="edit({{ $emp->id }})">
                                         <span class="text-white-50 icon">

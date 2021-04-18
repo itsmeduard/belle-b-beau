@@ -2,7 +2,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>BnBMS - @if(auth()->user() == null) Belle n Beau @elseif( auth()->user()->role == '1' ) Admin Panel @else SuperAdmin Panel @endif</title>
+    <title>BnBMS -  @if(auth()->user() == null)
+                        Belle n Beau
+                    @elseif( auth()->user()->role == 'superadmin' )
+                        Superadmin Panel
+                    @elseif( auth()->user()->role == 'admin' )
+                        Admin Panel
+                    @elseif( auth()->user()->role == 'employee' )
+                        Employee Panel
+                    @elseif( auth()->user()->role == 'cashier' )
+                        Cashier Panel
+                    @elseif( auth()->user()->role == 'manager' )
+                        Manager Panel
+                    @endif
+    </title>
 
     {{--Icon image here--}}
     <link rel="icon" type="image/png" sizes="180x180" href="{{ asset('panelAssets/img/circle-cropped.png')}}">
@@ -28,8 +41,10 @@
         <link rel="stylesheet" href="{{ asset('panelAssets/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('panelAssets/fonts/fontawesome-all.min.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="{{ asset('panelAssets/css/stylesAdmin.css')}}">
     @endif
-<!-- Alpine -->
+
+    <!-- Alpine -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.x/dist/alpine.min.js" defer></script>
 
     @livewireStyles
@@ -51,8 +66,18 @@
         {{-- Admin Body --}}
         <body class="antialiased font-sans bg-gray-200" id="page-top">
     <div id="wrapper">
-        {{--Navigation Bar--}}
-        @if( auth()->user()->role == '1' ) @include('admin.navbar') @else @include('superadmin.navbar') @endif
+        {{--Sidebar Bar--}}
+        @if( auth()->user()->role == 'superadmin' )
+            @include('superadmin.navbar')
+        @elseif( auth()->user()->role == 'admin' )
+            @include('admin.navbar')
+        @elseif( auth()->user()->role == 'manager' )
+            @include('manager.navbar')
+        @elseif( auth()->user()->role == 'cashier' )
+            @include('cashier.navbar')
+        @elseif( auth()->user()->role == 'employee' )
+            @include('employee.navbar')
+        @endif
         <div class="flex-column" id="content-wrapper">
             <div id="content">
 
@@ -65,8 +90,6 @@
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
     @endif
-
-
 
     @if(auth()->user() == null)
 
@@ -156,5 +179,25 @@
                 event.preventDefault();
             }
         });
+
+        function myCheckbox() {
+            var markDone = document.getElementById("markDone");
+            var markDoneSubmitView = document.getElementById("show_this");
+            if (markDone.checked == true) {
+                markDoneSubmitView.style.display = "block";
+            } else {
+                markDoneSubmitView.style.display = "none";
+            }
+        }
+        //
+        // function myFunction() {
+        //     var checkBox = document.getElementById("chkEmail");
+        //     var div = document.getElementById("div_Email");
+        //     if (checkBox.checked == true) {
+        //         div.style.display = "block";
+        //     } else {
+        //         div.style.display = "none";
+        //     }
+        // }
     </script>
 </body>

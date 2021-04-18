@@ -1,20 +1,19 @@
 <?php
 namespace App\Models;
 use Illuminate\Database\Eloquent\{Model,Factories\HasFactory};
-class Appointment extends Model
+class Walkin extends Model
 {
     use HasFactory;
-    protected $table="appointments";
+    protected $table='walkin';
     protected $fillable = [
         'name',
         'email',
         'phone',
+        'address',
         'service',
         'schedule',
         'note',
-        'address',
-        'ipAddress',
-        'created_at',
+        'created_at'
     ];
     public $timestamps = false;
 }

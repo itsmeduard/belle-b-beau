@@ -16,7 +16,7 @@
             <div class="jumbotron jumbotron-fluid text-center" style="background: rgba(253, 232, 232, 0.7);">
                 <h1 class="display-1" style="font-family: 'Fredoka One', cursive;color: #ff508e;margin: 0px;">404</h1>
                 <p style="font-family: 'Raleway', sans-serif;color: #222;font-size: 22px;margin: 0px;">OOPS, THE PAGE YOU ARE LOOKING FOR CAN'T BE FOUND!</p>
-                <p><a href='{{URL::to("/")}}' class="btn btn-outline-primary" role="button">&lt; Return to
+                <p><a href='{{route('log-out')}}' class="btn btn-outline-primary" role="button">&lt; Return to
                                                                                              Homepage</a></p>
             </div>
         </div>

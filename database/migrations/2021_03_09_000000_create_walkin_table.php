@@ -1,14 +1,13 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppointmentsTable extends Migration
+class CreateWalkinTable extends Migration
 {
     public function up()
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('walkin', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email');
@@ -17,13 +16,12 @@ class CreateAppointmentsTable extends Migration
             $table->string('schedule');
             $table->string('address');
             $table->text('note');
-            $table->string('ip_address');
             $table->timestamps('created_at');
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('walkin');
     }
 }

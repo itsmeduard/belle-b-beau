@@ -18,13 +18,24 @@ class HomeController extends Controller
             return redirect()->route('login');
 
             /*Admin Panel*/
-        } elseif( auth()->user()->role == '1' ) {
-//            dd('working');
+        } elseif( auth()->user()->role == 'admin' ) {
             return redirect()->route('admin.dashboard');
 
             /*SuperAdmin Panel(For Developers)*/
-        } elseif( auth()->user()->role == '3') {
-            dd('welcome developer');
+        } elseif( auth()->user()->role == 'cashier' ) {
+            return redirect()->route('cashier.dashboard');
+
+            /*SuperAdmin Panel(For Developers)*/
+        } elseif( auth()->user()->role == 'manager' ) {
+            return redirect()->route('manager.dashboard');
+
+            /*SuperAdmin Panel(For Developers)*/
+        } elseif( auth()->user()->role == 'employee' ) {
+            return redirect()->route('employee.dashboard');
+
+            /*SuperAdmin Panel(For Developers)*/
+        } elseif( auth()->user()->role == 'superadmin') {
+            return redirect()->route('superadmin.dashboard');
 
         } else {
             auth()->logout();
