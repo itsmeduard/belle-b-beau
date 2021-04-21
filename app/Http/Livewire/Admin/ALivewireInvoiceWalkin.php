@@ -96,7 +96,7 @@ class ALivewireInvoiceWalkin extends Component
     {
         $this->fetchData();
 
-        return view('admin.invoiceappointment',[
+        return view('admin.invoice_appointment',[
             'item'       => $this->invoices,
             'notifCount' => count($this->appt),
             'appt'       => $this->appt->take(3)

@@ -362,7 +362,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" wire:click.prevent="cancel()" data-dismiss="modal"><i class="fa fa-arrow-up"></i> Close</button>
 
-                    <a href="{{route('admin.invoice')}}" class="btn btn-info"><i class="fa fa-check"></i> View Invoice</a>
+                    <a href="{{route('admin.invoice_walkin')}}" class="btn btn-info"><i class="fa fa-check"></i> View Invoice</a>
                 </div>
             </div>
         </div>

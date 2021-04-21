@@ -2,14 +2,13 @@
 namespace App\Http\Livewire\Admin;
 use App\Models\{Appointment,InvoiceAppointment};
 use Livewire\{Component,WithPagination};
-
 class ALivewireInvoiceAppointment extends Component
 {
     use WithPagination;/*User Livewire Pagination*/
     protected $paginationTheme = 'bootstrap';/*Use Bootstrap theme pagination*/
 
     /*Get Data in a safe way*/
-    protected $invoices, $appt;
+    protected $invappt, $appt;
 
     public $sortBy = 'created_at';/*Sort With Column*/
     public $sortDirection = 'desc';/*Latest Item*/
@@ -20,20 +19,22 @@ class ALivewireInvoiceAppointment extends Component
     protected $queryString = ['search'];
 
     /*Item*/
-    public $invoice_id, $name, $email, $phone, $service, $schedule, $note, $address, $invoice_number, $detail_id, $total, $type;
+    public $appt_id, $name, $email, $phone, $address, $service, $schedule, $note, $total;
+
+    public $updateMode = false;
 
     public function fetchData()
     {
         /*Get Services Data to Tables*/
-        $invoice = InvoiceAppointment::leftjoin('appointments','appointments.id','invoice_appointment.detail_id')
-        ->where(fn($query) => $query
-                ->where(  'name',  'like', '%' . $this->search . '%')
-                ->orWhere('invoice_number', 'like', '%' . $this->search . '%')
+        $invoice = InvoiceAppointment::leftjoin('appointments as appt','appt.id','invoice_appointment.detail_id')
+            ->leftjoin('appointment_status as appt_stat','appt_stat.appt_id','invoice_appointment.detail_id')
+            ->where(fn($query) => $query
+                ->where(  'appt.name',  'like', '%' . $this->search . '%')
+                ->orWhere('invoice_appointment.total', 'like', '%' . $this->search . '%')
             )
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate($this->perPage);
-
-        $this->invoices = $invoice;
+        $this->invappt = $invoice;
 
         /*For notifications*/
         $appoint = Appointment::leftjoin('appointment_status as apts','apts.appt_id','appointments.id')
@@ -53,30 +54,27 @@ class ALivewireInvoiceAppointment extends Component
         $this->name     = '';
         $this->email    = '';
         $this->phone    = '';
-        $this->service  = '';
-        $this->schedule = '';
-        $this->note     = '';
         $this->address  = '';
-        $this->invoice_number  = '';
-        $this->total  = '';
-        $this->type  = '';
+        $this->service  = '';
+        $this->note     = '';
+        $this->total    = '';
     }
 
     public function edit($id)
     {
         $this->updateMode = true;
-        $invoice = Invoice::findOrFail($id);
-        $this->invoice_id       = $id;
-        $this->name             = $invoice->name;
-        $this->email            = $invoice->email;
-        $this->phone            = $invoice->phone;
-        $this->service          = $invoice->service;
-        $this->schedule         = $invoice->schedule;
-        $this->note             = $invoice->note;
-        $this->address          = $invoice->address;
-        $this->invoice_number   = $invoice->invoice_number;
-        $this->type             = $invoice->type;
-        $this->total            = number_format($invoice->total / 100, 2);
+        $invappt = InvoiceAppointment::leftjoin('appointments as appt','appt.id','invoice_appointment.detail_id')
+            ->leftjoin('appointment_status as appt_stat','appt_stat.appt_id','invoice_appointment.detail_id')
+            ->where('appt_stat','Accepted')
+            ->where('appt.id',$id)->get();
+        $this->appt_id = $id;
+        $this->name     = $invappt->name;
+        $this->email    = $invappt->email;
+        $this->phone    = $invappt->phone;
+        $this->address  = $invappt->address;
+        $this->schedule = $invappt->schedule;
+        $this->note     = $invappt->note;
+        $this->total    = $invappt->total;
     }
 
     public function cancel()
@@ -88,8 +86,11 @@ class ALivewireInvoiceAppointment extends Component
     public function show($id)
     {
         $this->updatedMode = true;
-        $invoice = Invoice::findOrFail($id);
-        $this->invoice_id = $invoice->id;
+        $invappt = InvoiceAppointment::leftjoin('appointments as appt','appt.id','invoice_appointment.detail_id')
+            ->leftjoin('appointment_status as appt_stat','appt_stat.appt_id','invoice_appointment.detail_id')
+            ->where('appt_stat','Accepted')
+            ->where('appt.id',$id)->get();
+        $this->appt_id = $invappt->id;
     }
 
     public function render()
@@ -97,7 +98,7 @@ class ALivewireInvoiceAppointment extends Component
         $this->fetchData();
 
         return view('admin.invoice_appointment',[
-            'item'       => $this->invoices,
+            'item'       => $this->invappt,
             'notifCount' => count($this->appt),
             'appt'       => $this->appt->take(3)
         ]);

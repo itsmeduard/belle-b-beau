@@ -306,43 +306,70 @@
                                 <div class="col-lg-6 p-2">
                                     <select class="border rounded-pill custom-select" name="service" required>
                                         <option selected disabled>--Select Service--</option>
-                                        @forelse($services as $serv)
-                                            @if($serv->category == "Face")
-                                                <optgroup label="Face">
+                                        <optgroup label="Face">
+                                            @forelse($services as $serv)
+                                                @if($serv->category == "Face")
                                                     <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
-                                                </optgroup>
-                                            @elseif($serv->category == "Nails")
-                                                <optgroup label="Nails">
+                                                @endif
+                                            @empty
+                                            @endforelse
+                                        </optgroup>
+                                        <optgroup label="Nails">
+                                            @forelse($services as $serv)
+                                                @if($serv->category == "Nails")
                                                     <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
-                                                 </optgroup>
-                                            @elseif($serv->category == "Cautery")
-                                                <optgroup label="Cautery">
+                                                @endif
+                                            @empty
+                                            @endforelse
+                                        </optgroup>
+                                        <optgroup label="Cautery">
+                                            @forelse($services as $serv)
+                                                @if($serv->category == "Cautery")
                                                     <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
-                                                 </optgroup>
-                                            @elseif($serv->category == "Waxing")
-                                                <optgroup label="Waxing">
+                                                @endif
+                                            @empty
+                                            @endforelse
+                                        </optgroup>
+                                        <optgroup label="Waxing">
+                                            @forelse($services as $serv)
+                                                @if($serv->category == "Waxing")
                                                     <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
-                                                 </optgroup>
-                                            @elseif($serv->category == "RF Cavitation")
-                                                <optgroup label="RF Cavitation">
+                                                @endif
+                                            @empty
+                                            @endforelse
+                                        </optgroup>
+                                        <optgroup label="RF Cavitation">
+                                            @forelse($services as $serv)
+                                                @if($serv->category == "RF Cavitation")
                                                     <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
-                                                 </optgroup>
-                                            @elseif($serv->category == "Eyelashes Extension")
-                                                <optgroup label="Eyelashes Extension">
+                                                @endif
+                                            @empty
+                                            @endforelse
+                                        </optgroup>
+                                        <optgroup label="Eyelashes Extension">
+                                            @forelse($services as $serv)
+                                                @if($serv->category == "Eyelashes Extension")
                                                     <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
-                                                 </optgroup>
-                                            @elseif($serv->category == "Hair")
-                                                 <optgroup label="Hair">
+                                                @endif
+                                            @empty
+                                            @endforelse
+                                        </optgroup>
+                                        <optgroup label="Hair">
+                                            @forelse($services as $serv)
+                                                @if($serv->category == "Hair")
                                                     <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
-                                                 </optgroup>
-                                            @elseif($serv->category == "Hair & Make Up")
-                                                <optgroup label="Hair & Make Up">
+                                                @endif
+                                            @empty
+                                            @endforelse
+                                        </optgroup>
+                                        <optgroup label="Hair & Make Up">
+                                            @forelse($services as $serv)
+                                                @if($serv->category == "Hair & Make Up")
                                                     <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>
-                                                 </optgroup>
-                                            @endif
-                                        @empty
-                                            <optgroup label="No record found"></optgroup>
-                                        @endforelse
+                                                @endif
+                                            @empty
+                                            @endforelse
+                                        </optgroup>
                                     </select>
                                 </div>
                                 @php

@@ -28,10 +28,10 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('employee',  ALivewireEmployee::class)->name('employee');
         Route::get('profile',   ALivewireProfile::class)->name('profile');
         Route::get('appointment',ALivewireAppointment::class)->name('appointment');
+        Route::get('walkin',    ALivewireWalkin::class)->name('walkin');
         Route::get('invoice_appointment',   ALivewireInvoiceAppointment::class)->name('invoice_appointment');
         Route::get('invoice_walkin',   ALivewireInvoiceWalkin::class)->name('invoice_walkin');
         Route::get('report',    ALivewireReport::class)->name('report');
-        Route::get('walkin',    ALivewireWalkin::class)->name('walkin');
     });
 
     Route::group(['middleware' => 'CheckSuperadmin', 'prefix' => 'superadmin', 'as' => "superadmin."], function() {
