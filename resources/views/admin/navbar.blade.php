@@ -15,6 +15,8 @@
             <li class="nav-item"><a class="nav-link" href="{{route('admin.invoice_appointment')}}"><i class="fas fa-table" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">Invoice Appointment</span></a></li>
             <li class="nav-item"><a class="nav-link" href="{{route('admin.invoice_walkin')}}"><i class="fas fa-table" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">Invoice Walkin</span></a></li>
             <li class="nav-item"><a class="nav-link" href="{{route('admin.report')}}"><i class="fas fa-table" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">Reports</span></a></li>
+{{--            <li class="nav-item"><a class="nav-link" href="{{route('admin.inv_item')}}"><i class="fas fa-table" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">Inventory-Item List</span></a></li>--}}
+{{--            <li class="nav-item"><a class="nav-link" href="{{route('admin.inv_stock')}}"><i class="fas fa-table" style="color: rgb(133,135,150);"></i><span style="color: rgb(133,135,150);">Inventory-Stocks</span></a></li>--}}
         </ul>
     </div>
 </nav>

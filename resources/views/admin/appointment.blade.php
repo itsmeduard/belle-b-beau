@@ -57,12 +57,6 @@
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
             <h3 class="text-dark mb-0">Appointment</h3>
-{{--            <a class="btn btn-primary btn-icon-split" role="button" data-toggle="modal" data-target="#exampleModal">--}}
-{{--                <span class="text-white-50 icon">--}}
-{{--                    <i class="fas fa-plus"></i>--}}
-{{--                </span>--}}
-{{--                <span class="text-white text">New Appointment</span>--}}
-{{--            </a>--}}
         </div>
         <div class="card shadow">
             <div class="card-header py-3">
@@ -120,12 +114,6 @@
                                         </span>
                                         <span class="text-white text">View</span>
                                     </a>
-{{--                                    <a class="btn btn-danger btn-icon-split" role="button" data-toggle="modal" data-target="#deleteModal" wire:click="show({{ $appt->id }})">--}}
-{{--                                        <span class="text-white-50 icon">--}}
-{{--                                            <i class="fas fa-trash"></i>--}}
-{{--                                        </span>--}}
-{{--                                        <span class="text-white text">Delete</span>--}}
-{{--                                    </a>--}}
                                 </td>
                             </tr>
                         @empty
@@ -149,116 +137,6 @@
             </div>
         </div>
     </div>
-
-    {{-- Add Appointment Modal --}}
-{{--    <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">--}}
-{{--        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">--}}
-{{--            <div class="modal-content">--}}
-{{--                <div class="modal-header">--}}
-{{--                    <h5 class="modal-title" id="exampleModalLabel">Add Appointment</h5>--}}
-{{--                </div>--}}
-{{--                <div class="modal-body">--}}
-{{--                    <form>--}}
-{{--                        <div class='form-row'>--}}
-{{--                            <div class='col-md-4 col-lg-4'>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Name</label>--}}
-{{--                                    <input type="text" class="form-control" wire:model="name" placeholder="Customer Name" maxlength='50'>--}}
-{{--                                    @error('name') {{ $message }} @enderror--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class='col-md-4 col-lg-4'>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Email</label>--}}
-{{--                                    <input type="email" class="form-control" wire:model="email" placeholder="Customer Email" maxlength='50'>--}}
-{{--                                    @error('email') {{ $message }} @enderror--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class='col-md-4 col-lg-4'>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Phone</label>--}}
-{{--                                    <input type="number" class="form-control" wire:model="phone" placeholder="Customer Contact" maxlength='50'>--}}
-{{--                                    @error('phone') {{ $message }} @enderror--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="form-group">--}}
-{{--                            <label>Address</label>--}}
-{{--                            <textarea class="form-control" wire:model="address" placeholder="Customer Address" maxlength='100'></textarea>--}}
-{{--                            @error('address') {{ $message }} @enderror--}}
-{{--                        </div>--}}
-{{--                        <div class='form-row'>--}}
-{{--                            <div class='col-md-6 col-lg-6'>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Service</label>--}}
-{{--                                    <select class="form-control custom-select" wire:model="service">--}}
-{{--                                        <option selected disabled>--Select Service--</option>--}}
-{{--                                        @forelse($services as $serv)--}}
-{{--                                            @if($serv->category == "Face")--}}
-{{--                                                <optgroup label="Face">--}}
-{{--                                                            <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>--}}
-{{--                                                        </optgroup>--}}
-{{--                                            @elseif($serv->category == "Nails")--}}
-{{--                                                <optgroup label="Nails">--}}
-{{--                                                            <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>--}}
-{{--                                                         </optgroup>--}}
-{{--                                            @elseif($serv->category == "Cautery")--}}
-{{--                                                <optgroup label="Cautery">--}}
-{{--                                                            <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>--}}
-{{--                                                         </optgroup>--}}
-{{--                                            @elseif($serv->category == "Waxing")--}}
-{{--                                                <optgroup label="Waxing">--}}
-{{--                                                            <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>--}}
-{{--                                                         </optgroup>--}}
-{{--                                            @elseif($serv->category == "RF Cavitation")--}}
-{{--                                                <optgroup label="RF Cavitation">--}}
-{{--                                                            <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>--}}
-{{--                                                         </optgroup>--}}
-{{--                                            @elseif($serv->category == "Eyelashes Extension")--}}
-{{--                                                <optgroup label="Eyelashes Extension">--}}
-{{--                                                            <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>--}}
-{{--                                                         </optgroup>--}}
-{{--                                            @elseif($serv->category == "Hair")--}}
-{{--                                                <optgroup label="Hair">--}}
-{{--                                                            <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>--}}
-{{--                                                         </optgroup>--}}
-{{--                                            @elseif($serv->category == "Hair & Make Up")--}}
-{{--                                                <optgroup label="Hair & Make Up">--}}
-{{--                                                            <option value="{{$serv->service}} - {{number_format($serv->price / 100, 2)}}">{{$serv->service}} - {{number_format($serv->price / 100, 2)}}PHP</option>--}}
-{{--                                                         </optgroup>--}}
-{{--                                            @endif--}}
-{{--                                        @empty--}}
-{{--                                            <optgroup label="No record found"></optgroup>--}}
-{{--                                        @endforelse--}}
-{{--                                    </select>--}}
-{{--                                    @error('service') {{ $message }} @enderror--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            @php--}}
-{{--                                $petsa = new  DateTime('now +1 days');--}}
-{{--                                $petsa= $petsa->format('Y-m-d\TH:i');--}}
-{{--                            @endphp--}}
-{{--                            <div class='col-md-6 col-lg-6'>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Schedule</label>--}}
-{{--                                    <input class="form-control" value='' wire:model="schedule" type="datetime-local" name="schedule" min="@php echo $petsa @endphp">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="form-group">--}}
-{{--                            <label>Note</label>--}}
-{{--                            <textarea class="form-control" wire:model="note" placeholder="Customer Note" maxlength='100'></textarea>--}}
-{{--                            @error('note') {{ $message }} @enderror--}}
-{{--                        </div>--}}
-{{--                    </form>--}}
-{{--                </div>--}}
-{{--                <div class="modal-footer">--}}
-{{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-arrow-up"></i> Close</button>--}}
-{{--                    <button type="button" wire:click.prevent="store()" class="btn btn-primary close-modal"><i class="fa fa-plus"></i> Add Appointment</button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 
     {{-- View Appointment Modal --}}
     <div wire:ignore.self class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -380,26 +258,6 @@
             </div>
         </div>
     </div>
-
-    {{-- Delete Appointment Modal --}}
-{{--    <div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">--}}
-{{--       <div class="modal-dialog" role="document">--}}
-{{--          <div class="modal-content">--}}
-{{--             <div class="modal-header">--}}
-{{--                <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-trash"></i> Delete Appointment</h5>--}}
-{{--             </div>--}}
-{{--             <div class="modal-body">--}}
-{{--              <div class="alert alert-danger" role="alert">--}}
-{{--                 <p>Are you sure you? This action is irreversible.</p>--}}
-{{--              </div>--}}
-{{--             </div>--}}
-{{--             <div class="modal-footer">--}}
-{{--                <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-arrow-up"></i> Close</button>--}}
-{{--                <button type="button" wire:click.prevent="delete({{ $appt_id}})" class="btn btn-danger close-modal"><i class="fa fa-trash"></i> Delete</button>--}}
-{{--             </div>--}}
-{{--          </div>--}}
-{{--       </div>--}}
-{{--    </div>--}}
 </div>
 
 
